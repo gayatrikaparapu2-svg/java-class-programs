@@ -1,9 +1,30 @@
 package javacore;
 
-public class BasicThings {
-	public static void main(String []args) {
-		int x=10, y=20;
-		int c=x+y;
-		System.out.println("the result is:" + c);						
+public class Object{
+	int a=120;
+	
+	void sample() {
+		System.out.println("this is a test method");
 	}
+	void example() {
+		System.out.println("this is a another test method");
+	}
+	public static void main(String []args) {
+		int x=10,y=20;
+		int c=x+y;
+		System.out.println("the result is:" + c);
+		 
+
+		//object
+		Object o =new Object();
+		System.out.println("variable:" + o.a);
+		 o.sample();
+		o.example();		
+		
+	}
+	
 }
+	
+
+	
+
