@@ -1,1 +1,26 @@
 
+package javacore;
+
+//Abstract parent class
+abstract class Animal {
+    //Abstarct method 
+    abstract void sound();
+    //Normal method
+    void eat() {
+        System.out.println("Animal eats food");
+    } 
+}
+ class Dog extends Animal {
+    //Implementation of abstract method
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+public class AbstractClass {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound(); // Output: Dog barks
+        dog.eat();   // Output: Animal eats food
+    }
+}
