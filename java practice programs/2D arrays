@@ -1,26 +1,21 @@
 
-package javacore;
+package javasample;
 
-//Abstract parent class
-abstract class Animal {
-    //Abstarct method 
-    abstract void sound();
-    //Normal method
-    void eat() {
-        System.out.println("Animal eats food");
-    } 
-}
- class Dog extends Animal {
-    //Implementation of abstract method
-    @Override
-    void sound() {
-        System.out.println("Dog barks");
-    }
-}
-public class AbstractClass {
-    public static void main(String[] args) {
-        Dog dog = new Dog();
-        dog.sound(); // Output: Dog barks
-        dog.eat();   // Output: Animal eats food
-    }
-}
+	public class TwoDArrays {
+		public static void main(String[] args) {
+//			intialize a 2D dynamic array
+			int x[][] = {{3,5,9},{7,4,8},{1,6,2}};  
+			
+//			System.out.println(x[1][1]);
+//			System.out.println(x[2][2]);
+//			System.out.println(x[2][1] + x[1][1]);
+//			
+			for(int i=0;i<=2;i++) {
+				for(int j=0;j<=2;j++) {
+					System.out.print(x[i][j] + "  ");
+				}
+				System.out.println();
+			}
+		}
+	}
+
