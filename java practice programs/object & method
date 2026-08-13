@@ -1,1 +1,9 @@
+package javacore;
 
+public class BasicThings {
+	public static void main(String []args) {
+		int x=10, y=20;
+		int c=x+y;
+		System.out.println("the result is:" + c);						
+	}
+}
