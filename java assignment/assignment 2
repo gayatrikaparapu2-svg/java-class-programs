@@ -1,1 +1,53 @@
+// C1 EXTENDS C2
+package extendsandimplements; 
+//Parent class 
+class Cat { 
+// Method of parent class 
+void show() { 
+System.out.println("This is C2 class"); 
+} 
+} 
+//Child class inherits C2 
+class Dog extends Cat { 
+// Method of child class 
+void display() { 
+System.out.println("This is C1 class"); 
+} 
+} 
+//Main class 
+public class Extends { 
+// Main method 
+public static void main(String[] args) { 
+// Creating object of C1 
+Dog obj = new Dog(); 
+// Calling parent class method 
+obj.show(); 
+// Calling child class method 
+obj.display(); 
+} 
+} 
 
+// C1 EXTENDS C2,C3
+package extendsandimplements; 
+//First parent class 
+class C2 { 
+void show() { 
+System.out.println("C2 class"); 
+} 
+} 
+//Second parent class 
+class C3 { 
+void display() { 
+System.out.println("C3 class"); 
+} 
+} 
+//This is NOT allowed in Java 
+//class C1 extends C2, C3 { 
+//} 
+//Main class 
+public class ExtendsTwo { 
+public static void main(String[] args) { 
+// Display the reason 
+System.out.println("A class cannot extend two classes in Java."); 
+} 
+}
