@@ -51,3 +51,281 @@ public static void main(String[] args) {
 System.out.println("A class cannot extend two classes in Java."); 
 } 
 }
+
+// C1 impements I1
+package mypackage;
+
+// Create interface
+interface I1 {
+
+    // Abstract method
+    void show();
+}
+
+// Class C1 implements interface I1
+class C1 implements I1 {
+
+    // Implement the interface method
+    public void show() {
+        System.out.println("C1 implements I1");
+    }
+}
+
+// Main class
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create object of C1
+        C1 obj = new C1();
+
+        // Call interface method
+        obj.show();
+    }
+} 
+
+// C1 implements I1,I2
+package mypackage;
+
+// First interface
+interface I1 {
+
+    // Method of I1
+    void show1();
+}
+
+// Second interface
+interface I2 {
+
+    // Method of I2
+    void show2();
+}
+
+// C1 implements both interfaces
+class C1 implements I1, I2 {
+
+    // Implement I1 method
+    public void show1() {
+        System.out.println("Method from I1");
+    }
+
+    // Implement I2 method
+    public void show2() {
+        System.out.println("Method from I2");
+    }
+}
+
+// Main class
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create object of C1
+        C1 obj = new C1();
+
+        // Call I1 method
+        obj.show1();
+
+        // Call I2 method
+        obj.show2();
+    }
+} 
+
+//C1 implements C2 extends I1
+package mypackage;
+
+// Class C2
+class C2 {
+
+    // Method of C2
+    void show() {
+        System.out.println("This is C2 class");
+    }
+}
+
+// Interface I1
+interface I1 {
+
+    // Abstract method
+    void display();
+}
+
+// C1 tries to implement C2 and extend I1
+// This is INVALID in Java
+class C1 implements C2 extends I1 {
+
+    // Implementing the method of I1
+    public void display() {
+        System.out.println("This is I1 interface");
+    }
+}
+
+// Main class
+public class Main {
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating object of C1
+        C1 obj = new C1();
+
+        // Calling methods
+        obj.show();
+        obj.display();
+    }
+} 
+
+//I1 extends I2
+package mypackage;
+
+// Parent interface
+interface I2 {
+
+    // Method of I2
+    void show();
+}
+
+// I1 extends I2
+interface I1 extends I2 {
+
+    // Method of I1
+    void display();
+}
+
+// C1 implements I1
+class C1 implements I1 {
+
+    // Implement I2 method
+    public void show() {
+        System.out.println("Method from I2");
+    }
+
+    // Implement I1 method
+    public void display() {
+        System.out.println("Method from I1");
+    }
+}
+
+// Main class
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create object of C1
+        C1 obj = new C1();
+
+        // Call I2 method
+        obj.show();
+
+        // Call I1 method
+        obj.display();
+    }
+} 
+
+// I1 implements C1 
+package mypackage;
+
+// Class C1
+class C1 {
+
+    // Method of C1
+    void show() {
+        System.out.println("This is C1 class");
+    }
+}
+
+// Interface I1
+// This is INVALID because an interface cannot implement a class
+interface I1 implements C1 {
+
+    // Abstract method
+    void display();
+}
+
+// Main class
+public class Main {
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating object of C1
+        C1 obj = new C1();
+
+        // Calling C1 method
+        obj.show();
+    }
+} 
+
+//I1 extends I2,I3
+package mypackage;
+
+// First parent interface
+interface I2 {
+
+    // Method of I2
+    void show2();
+}
+
+// Second parent interface
+interface I3 {
+
+    // Method of I3
+    void show3();
+}
+
+// I1 extends both I2 and I3
+interface I1 extends I2, I3 {
+
+    // Method of I1
+    void show1();
+}
+
+// C1 implements I1
+class C1 implements I1 {
+
+    // Implement I1 method
+    public void show1() {
+        System.out.println("Method from I1");
+    }
+
+    // Implement I2 method
+    public void show2() {
+        System.out.println("Method from I2");
+    }
+
+    // Implement I3 method
+    public void show3() {
+        System.out.println("Method from I3");
+    }
+}
+
+// Main class
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create object of C1
+        C1 obj = new C1();
+
+        // Call I1 method
+        obj.show1();
+
+        // Call I2 method
+        obj.show2();
+
+        // Call I3 method
+        obj.show3();
+    }
+} 
+
+
+
+
+
+
+
+
+
+}
+
+
