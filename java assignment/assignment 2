@@ -1,4 +1,4 @@
-// C1 EXTENDS C2
+1) C1 EXTENDS C2
 package extendsandimplements; 
 //Parent class 
 class Cat { 
@@ -27,7 +27,7 @@ obj.display();
 } 
 } 
 
-// C1 EXTENDS C2,C3
+2) C1 EXTENDS C2,C3
 package extendsandimplements; 
 //First parent class 
 class C2 { 
@@ -52,7 +52,7 @@ System.out.println("A class cannot extend two classes in Java.");
 } 
 }
 
-// C1 impements I1
+3) C1 impements I1
 package mypackage;
 
 // Create interface
@@ -84,7 +84,7 @@ public class Main {
     }
 } 
 
-// C1 implements I1,I2
+4) C1 implements I1,I2
 package mypackage;
 
 // First interface
@@ -131,7 +131,7 @@ public class Main {
     }
 } 
 
-//C1 implements C2 extends I1
+5) C1 implements C2 extends I1
 package mypackage;
 
 // Class C2
@@ -175,7 +175,7 @@ public class Main {
     }
 } 
 
-//I1 extends I2
+6) I1 extends I2
 package mypackage;
 
 // Parent interface
@@ -222,7 +222,7 @@ public class Main {
     }
 } 
 
-// I1 implements C1 
+7) I1 implements C1 
 package mypackage;
 
 // Class C1
@@ -256,7 +256,7 @@ public class Main {
     }
 } 
 
-//I1 extends I2,I3
+8) I1 extends I2,I3
 package mypackage;
 
 // First parent interface
