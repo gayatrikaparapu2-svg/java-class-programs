@@ -1,0 +1,51 @@
+METHODS OF STRINGS
+public class StringMethods {
+
+    public static void main(String[] args) {
+
+        String s = "  Java Programming  ";
+
+        System.out.println("1. Length = " + s.length());
+
+        System.out.println("2. Character = " + s.charAt(3));
+
+        System.out.println("3. Uppercase = " + s.toUpperCase());
+
+        System.out.println("4. Lowercase = " + s.toLowerCase());
+
+        System.out.println("5. Equals = " +
+                s.equals("Java Programming"));
+
+        System.out.println("6. Equals Ignore Case = " +
+                s.equalsIgnoreCase("  java programming  "));
+
+        System.out.println("7. Concat = " +
+                s.concat(" Language"));
+
+        System.out.println("8. Substring = " +
+                s.substring(2, 6));
+
+        System.out.println("9. Index = " +
+                s.indexOf('a'));
+
+        System.out.println("10. Last Index = " +
+                s.lastIndexOf('a'));
+
+        System.out.println("11. Contains = " +
+                s.contains("Java"));
+
+        System.out.println("12. Starts With = " +
+                s.startsWith("  Java"));
+
+        System.out.println("13. Ends With = " +
+                s.endsWith("  "));
+
+        System.out.println("14. Replace = " +
+                s.replace('a', 'o'));
+
+        System.out.println("15. Trim = " +
+                s.trim());
+
+
+    }
+}
