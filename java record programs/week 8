@@ -1,0 +1,72 @@
+Interface – Employee Salary
+
+There are two types:
+
+Regular Employee
+Contract Employee
+
+import java.util.Scanner;
+
+interface Employee {
+
+    void calculateSalary();
+}
+
+class RegularEmployee implements Employee {
+
+    int basicPay = 25000;
+    int hra = 15000;
+    int ta = 5000;
+
+    public void calculateSalary() {
+
+        int total = basicPay + hra + ta;
+
+        System.out.println("Regular Employee Salary Details");
+        System.out.println("Basic Pay : " + basicPay);
+        System.out.println("HRA : " + hra);
+        System.out.println("T.A : " + ta);
+        System.out.println("Total Amount : " + total);
+    }
+}
+
+class ContractEmployee implements Employee {
+
+    int basicPay = 12000;
+    int ta = 3000;
+
+    public void calculateSalary() {
+
+        int total = basicPay + ta;
+
+        System.out.println("Contract Employee Salary Details");
+        System.out.println("Basic Pay : " + basicPay);
+        System.out.println("HRA : 0");
+        System.out.println("T.A : " + ta);
+        System.out.println("Total Amount : " + total);
+    }
+}
+
+public class EmployeeDemo {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Employee Id: ");
+        String id = sc.nextLine();
+
+        Employee employee;
+
+        // R indicates Regular Employee
+        if (id.startsWith("R")) {
+            employee = new RegularEmployee();
+        } else {
+            employee = new ContractEmployee();
+        }
+
+        employee.calculateSalary();
+
+        sc.close();
+    }
+}
