@@ -1,0 +1,66 @@
+Method Overriding – RBI and Banks
+
+This program demonstrates dynamic polymorphism.
+
+class RBI {
+
+    double getRateOfInterest() {
+        return 4.0;
+    }
+}
+
+class SBI extends RBI {
+
+    @Override
+    double getRateOfInterest() {
+        return 7.0;
+    }
+}
+
+class ICICI extends RBI {
+
+    @Override
+    double getRateOfInterest() {
+        return 6.0;
+    }
+}
+
+class PNB extends RBI {
+
+    @Override
+    double getRateOfInterest() {
+        return 5.5;
+    }
+}
+
+public class BankDemo {
+
+    public static void main(String[] args) {
+
+        // Parent class reference
+        RBI bank;
+
+        // RBI
+        bank = new RBI();
+        System.out.println("RBI rate of interest: "
+                           + bank.getRateOfInterest() + "%");
+
+        // SBI
+        bank = new SBI();
+        System.out.println("SBI rate of interest: "
+                           + bank.getRateOfInterest() + "%");
+
+        // ICICI
+        bank = new ICICI();
+        System.out.println("ICICI rate of interest: "
+                           + bank.getRateOfInterest() + "%");
+
+        // PNB
+        bank = new PNB();
+        System.out.println("PNB rate of interest: "
+                           + bank.getRateOfInterest() + "%");
+
+
+
+    }
+}
