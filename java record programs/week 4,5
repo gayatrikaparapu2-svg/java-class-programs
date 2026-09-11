@@ -1,0 +1,218 @@
+Classes and Objects – Farm Animals
+class Animal {
+
+    String name;
+    String stay;
+    String food;
+    String sound;
+
+    // Constructor
+    Animal(String name, String stay, String food, String sound) {
+        this.name = name;
+        this.stay = stay;
+        this.food = food;
+        this.sound = sound;
+    }
+
+    // Method to display details
+    void display() {
+        System.out.println("Animal Name : " + name);
+        System.out.println("Where it stays : " + stay);
+        System.out.println("Food : " + food);
+        System.out.println("Sound : " + sound);
+        System.out.println();
+    }
+}
+
+public class FarmAnimals {
+
+    public static void main(String[] args) {
+
+        // Creating objects
+        Animal cow = new Animal(
+            "Cow", "Cowshed", "Grass", "Moo"
+        );
+
+        Animal pig = new Animal(
+            "Pig", "Pigsty", "Vegetables", "Oink"
+        );
+
+        Animal horse = new Animal(
+            "Horse", "Stable", "Grass", "Neigh"
+        );
+
+        cow.display();
+        pig.display();
+        horse.display();
+
+Class Diagram Program – Customer, Order, Special Order, Normal Order
+
+class Customer {
+
+    String name;
+    String location;
+
+    Customer(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
+
+    void sendOrder() {
+        System.out.println(name + " sends an order.");
+    }
+
+    void receiveOrder() {
+        System.out.println(name + " receives the order.");
+    }
+}
+
+class Order {
+
+    String date;
+    String number;
+
+    Order(String date, String number) {
+        this.date = date;
+        this.number = number;
+    }
+
+    void confirm() {
+        System.out.println("Order confirmed.");
+    }
+
+    void close() {
+        System.out.println("Order closed.");
+    }
+}
+
+class SpecialOrder extends Order {
+
+    SpecialOrder(String date, String number) {
+        super(date, number);
+    }
+
+    void dispatch() {
+        System.out.println("Special order dispatched.");
+    }
+}
+
+class NormalOrder extends Order {
+
+    NormalOrder(String date, String number) {
+        super(date, number);
+    }
+
+    void dispatch() {
+        System.out.println("Normal order dispatched.");
+    }
+
+    void receive() {
+        System.out.println("Normal order received.");
+    }
+}
+
+public class OrderDemo {
+
+    public static void main(String[] args) {
+
+        Customer c = new Customer("Gayatri", "Vizag");
+
+        Order o = new Order("11-09-2026", "O101");
+
+        SpecialOrder so =
+            new SpecialOrder("11-09-2026", "SO101");
+
+        NormalOrder no =
+            new NormalOrder("11-09-2026", "NO101");
+
+        System.out.println("Customer Details");
+        System.out.println("Name : " + c.name);
+        System.out.println("Location : " + c.location);
+
+        System.out.println("\nOrder Details");
+        o.confirm();
+        o.close();
+
+        System.out.println("\nSpecial Order");
+        so.confirm();
+        so.dispatch();
+        so.close();
+
+        System.out.println("\nNormal Order");
+        no.confirm();
+        no.dispatch();
+        no.receive();
+        no.close();
+    }
+}
+
+Constructor Overloading – Employee
+
+class Employee {
+
+    String name;
+    int id;
+    String designation;
+    double salary;
+    String promotionStatus;
+
+    // Default constructor
+    Employee() {
+        name = "Unknown";
+        id = 0;
+        designation = "Not Assigned";
+        salary = 0;
+        promotionStatus = "No";
+    }
+
+    // Constructor with 2 parameters
+    Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    // Constructor with 5 parameters
+    Employee(String name, int id, String designation,
+             double salary, String promotionStatus) {
+
+        this.name = name;
+        this.id = id;
+        this.designation = designation;
+        this.salary = salary;
+        this.promotionStatus = promotionStatus;
+    }
+
+    void display() {
+        System.out.println("Name : " + name);
+        System.out.println("ID : " + id);
+        System.out.println("Designation : " + designation);
+        System.out.println("Salary : " + salary);
+        System.out.println("Promotion Status : " + promotionStatus);
+        System.out.println();
+    }
+}
+
+public class EmployeeDemo {
+
+    public static void main(String[] args) {
+
+        Employee e1 = new Employee();
+
+        Employee e2 =
+            new Employee("Ravi", 101);
+
+        Employee e3 =
+            new Employee("Gayatri", 102,
+                    "Software Engineer",
+                    50000,
+                    "Promoted");
+
+        e1.display();
+        e2.display();
+        e3.display();
+    }
+}
+
+
+    }
+}
