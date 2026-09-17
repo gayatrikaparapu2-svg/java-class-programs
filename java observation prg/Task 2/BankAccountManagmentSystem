@@ -1,0 +1,205 @@
+package bankmanagement;
+
+// Base class
+class Account
+{
+    // Attributes
+    protected int accountNumber;
+    protected String accountHolderName;
+    protected double balance;
+    protected String accountType;
+
+    // Constructor to initialize account details
+    Account(int accountNumber, String accountHolderName,
+            double balance, String accountType)
+    {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+        this.accountType = accountType;
+    }
+
+    // Method to deposit money
+    void deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance = balance + amount;
+            System.out.println("Deposited: Rs." + amount);
+        }
+        else
+        {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+
+    // Method to withdraw money
+    void withdraw(double amount)
+    {
+        if (amount > 0 && amount <= balance)
+        {
+            balance = balance - amount;
+            System.out.println("Withdrawn: Rs." + amount);
+        }
+        else
+        {
+            System.out.println("Insufficient balance");
+        }
+    }
+
+    // Method to transfer money
+    void transfer(Account receiver, double amount)
+    {
+        if (amount > 0 && amount <= balance)
+        {
+            this.balance = this.balance - amount;
+            receiver.balance = receiver.balance + amount;
+
+            System.out.println("Transferred: Rs." + amount);
+            System.out.println("Money transferred successfully");
+        }
+        else
+        {
+            System.out.println("Transfer failed");
+        }
+    }
+
+    // Method to display account details
+    void displayAccountDetails()
+    {
+        System.out.println("Account Number     : " + accountNumber);
+        System.out.println("Account Holder     : " + accountHolderName);
+        System.out.println("Account Type       : " + accountType);
+        System.out.println("Balance            : Rs." + balance);
+    }
+}
+
+
+// SavingsAccount inherits Account
+class SavingsAccount extends Account
+{
+    // Additional attribute
+    double interestRate;
+
+    // Constructor
+    SavingsAccount(int accountNumber, String accountHolderName,
+                   double balance, double interestRate)
+    {
+        super(accountNumber, accountHolderName, balance, "Savings Account");
+        this.interestRate = interestRate;
+    }
+
+    // Calculate interest
+    double calculateInterest()
+    {
+        return balance * interestRate / 100;
+    }
+}
+
+
+// CurrentAccount inherits Account
+class CurrentAccount extends Account
+{
+    // Additional attribute
+    double overdraftLimit;
+
+    // Constructor
+    CurrentAccount(int accountNumber, String accountHolderName,
+                   double balance, double overdraftLimit)
+    {
+        super(accountNumber, accountHolderName, balance, "Current Account");
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    // Override withdraw method
+    @Override
+    void withdraw(double amount)
+    {
+        if (amount > 0 && amount <= balance + overdraftLimit)
+        {
+            balance = balance - amount;
+            System.out.println("Withdrawn: Rs." + amount);
+        }
+        else
+        {
+            System.out.println("Withdrawal exceeds overdraft limit");
+        }
+    }
+}
+
+
+// Main class
+public class BankManagement
+{
+    public static void main(String[] args)
+    {
+        // Creating SavingsAccount object
+        SavingsAccount savings =
+            new SavingsAccount(101, "Gayatri", 10000, 5);
+
+        // Creating CurrentAccount object
+        CurrentAccount current =
+            new CurrentAccount(102, "Ananya", 5000, 3000);
+
+
+        // Display details before transactions
+        System.out.println("===== BEFORE TRANSACTIONS =====");
+
+        System.out.println("\nSavings Account");
+        savings.displayAccountDetails();
+
+        System.out.println("\nCurrent Account");
+        current.displayAccountDetails();
+
+
+        // Deposit into Savings Account
+        System.out.println("\n===== DEPOSIT =====");
+        savings.deposit(2000);
+
+
+        // Withdraw from Savings Account
+        System.out.println("\n===== SAVINGS WITHDRAWAL =====");
+        savings.withdraw(1000);
+
+
+        // Calculate interest
+        System.out.println("\n===== INTEREST CALCULATION =====");
+
+        double interest = savings.calculateInterest();
+
+        System.out.println("Interest Rate : " + savings.interestRate + "%");
+        System.out.println("Interest      : Rs." + interest);
+
+
+        // Add interest to savings balance
+        savings.deposit(interest);
+
+
+        // Withdraw from Current Account
+        System.out.println("\n===== CURRENT ACCOUNT WITHDRAWAL =====");
+        current.withdraw(7000);
+
+
+        // Transfer money from Savings to Current
+        System.out.println("\n===== FUND TRANSFER =====");
+        savings.transfer(current, 2000);
+
+
+        // Display details after transactions
+        System.out.println("\n===== AFTER TRANSACTIONS =====");
+
+        System.out.println("\nSavings Account");
+        savings.displayAccountDetails();
+
+        System.out.println("\nCurrent Account");
+        current.displayAccountDetails();
+
+
+        // Final balances
+        System.out.println("\n===== FINAL BALANCES =====");
+        System.out.println("Savings Account Final Balance : Rs."
+                           + savings.balance);
+        System.out.println("Current Account Final Balance : Rs."
+                           + current.balance);
+    }
+}
