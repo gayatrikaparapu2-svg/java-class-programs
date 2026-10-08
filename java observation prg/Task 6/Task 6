@@ -1,1 +1,371 @@
+// 1. ArrayList
+import java.util.*;
 
+class ArrayListDemo {
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Mango");
+        list.add(1, "Orange");
+
+        System.out.println("List: " + list);
+        System.out.println("Get: " + list.get(1));
+
+        list.set(1, "Grapes");
+        System.out.println("After set: " + list);
+
+        list.remove("Apple");
+        System.out.println("After remove: " + list);
+
+        System.out.println("Contains Mango: " + list.contains("Mango"));
+        System.out.println("Size: " + list.size());
+        System.out.println("Index of Mango: " + list.indexOf("Mango"));
+        System.out.println("Last Index: " + list.lastIndexOf("Mango"));
+
+        Collections.sort(list);
+        System.out.println("Sorted: " + list);
+
+        System.out.println("Is Empty: " + list.isEmpty());
+
+        list.clear();
+        System.out.println("After clear: " + list);
+    }
+}
+// 2. LinkedList
+import java.util.*;
+
+class LinkedListDemo {
+    public static void main(String[] args) {
+
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("A");
+        list.add("B");
+        list.add("C");
+
+        list.addFirst("Start");
+        list.addLast("End");
+
+        System.out.println("List: " + list);
+        System.out.println("First: " + list.getFirst());
+        System.out.println("Last: " + list.getLast());
+        System.out.println("Get index 2: " + list.get(2));
+
+        list.removeFirst();
+        list.removeLast();
+
+        System.out.println("After removal: " + list);
+
+        list.offer("D");
+        System.out.println("After offer: " + list);
+
+        System.out.println("Poll: " + list.poll());
+        System.out.println("Peek: " + list.peek());
+    }
+}
+// 3. Vector
+import java.util.*;
+
+class VectorDemo {
+    public static void main(String[] args) {
+
+        Vector<String> v = new Vector<>();
+
+        v.add("Apple");
+        v.add("Banana");
+        v.addElement("Mango");
+
+        System.out.println("Vector: " + v);
+        System.out.println("Get: " + v.get(1));
+
+        v.set(1, "Orange");
+        System.out.println("After set: " + v);
+
+        v.remove(0);
+        System.out.println("After remove: " + v);
+
+        System.out.println("Size: " + v.size());
+        System.out.println("Capacity: " + v.capacity());
+        System.out.println("Contains Mango: " + v.contains("Mango"));
+    }
+}
+// 4. Stack
+import java.util.*;
+
+class StackDemo {
+    public static void main(String[] args) {
+
+        Stack<Integer> s = new Stack<>();
+
+        s.push(10);
+        s.push(20);
+        s.push(30);
+
+        System.out.println("Stack: " + s);
+        System.out.println("Peek: " + s.peek());
+
+        System.out.println("Pop: " + s.pop());
+
+        System.out.println("Stack after pop: " + s);
+        System.out.println("Is Empty: " + s.empty());
+
+        System.out.println("Position of 10: " + s.search(10));
+    }
+}
+// 5. HashSet
+import java.util.*;
+
+class HashSetDemo {
+    public static void main(String[] args) {
+
+        HashSet<String> set = new HashSet<>();
+
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Mango");
+        set.add("Apple");
+
+        System.out.println("Set: " + set);
+
+        set.remove("Banana");
+        System.out.println("After remove: " + set);
+
+        System.out.println("Contains Mango: " + set.contains("Mango"));
+        System.out.println("Size: " + set.size());
+        System.out.println("Is Empty: " + set.isEmpty());
+
+        set.clear();
+        System.out.println("After clear: " + set);
+    }
+}
+// 6. LinkedHashSet
+import java.util.*;
+
+class LinkedHashSetDemo {
+    public static void main(String[] args) {
+
+        LinkedHashSet<String> set = new LinkedHashSet<>();
+
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Mango");
+        set.add("Apple");
+
+        System.out.println("Set: " + set);
+
+        set.remove("Banana");
+
+        System.out.println("After remove: " + set);
+        System.out.println("Contains Apple: " + set.contains("Apple"));
+        System.out.println("Size: " + set.size());
+    }
+}
+// 7. TreeSet
+import java.util.*;
+
+class TreeSetDemo {
+    public static void main(String[] args) {
+
+        TreeSet<Integer> set = new TreeSet<>();
+
+        set.add(30);
+        set.add(10);
+        set.add(20);
+        set.add(40);
+
+        System.out.println("Set: " + set);
+
+        System.out.println("First: " + set.first());
+        System.out.println("Last: " + set.last());
+
+        System.out.println("Higher than 20: " + set.higher(20));
+        System.out.println("Lower than 20: " + set.lower(20));
+
+        System.out.println("Ceiling of 25: " + set.ceiling(25));
+        System.out.println("Floor of 25: " + set.floor(25));
+
+        System.out.println("Poll First: " + set.pollFirst());
+        System.out.println("Poll Last: " + set.pollLast());
+
+        System.out.println("Final Set: " + set);
+    }
+}
+// 8. PriorityQueue
+import java.util.*;
+
+class PriorityQueueDemo {
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> q = new PriorityQueue<>();
+
+        q.add(30);
+        q.add(10);
+        q.add(20);
+
+        System.out.println("Queue: " + q);
+
+        System.out.println("Peek: " + q.peek());
+        System.out.println("Poll: " + q.poll());
+
+        System.out.println("After poll: " + q);
+
+        q.offer(40);
+
+        System.out.println("After offer: " + q);
+        System.out.println("Contains 20: " + q.contains(20));
+
+        q.remove(20);
+
+        System.out.println("After remove: " + q);
+        System.out.println("Size: " + q.size());
+    }
+}
+// 9. ArrayDeque
+import java.util.*;
+
+class ArrayDequeDemo {
+    public static void main(String[] args) {
+
+        ArrayDeque<Integer> d = new ArrayDeque<>();
+
+        d.addFirst(20);
+        d.addLast(30);
+
+        d.offerFirst(10);
+        d.offerLast(40);
+
+        System.out.println("Deque: " + d);
+
+        System.out.println("First: " + d.peekFirst());
+        System.out.println("Last: " + d.peekLast());
+
+        System.out.println("Poll First: " + d.pollFirst());
+        System.out.println("Poll Last: " + d.pollLast());
+
+        System.out.println("Final Deque: " + d);
+    }
+}
+Map Classes
+// 10. HashMap
+import java.util.*;
+
+class HashMapDemo {
+    public static void main(String[] args) {
+
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println("Map: " + map);
+
+        System.out.println("Get key 2: " + map.get(2));
+
+        map.remove(1);
+
+        System.out.println("After remove: " + map);
+
+        System.out.println("Contains key 3: " + map.containsKey(3));
+        System.out.println("Contains value Mango: " + map.containsValue("Mango"));
+
+        System.out.println("Keys: " + map.keySet());
+        System.out.println("Values: " + map.values());
+        System.out.println("Entries: " + map.entrySet());
+
+        System.out.println("Size: " + map.size());
+        System.out.println("Is Empty: " + map.isEmpty());
+
+        System.out.println("Default: " +
+                map.getOrDefault(10, "Not Found"));
+    }
+}
+// 11. LinkedHashMap
+import java.util.*;
+
+class LinkedHashMapDemo {
+    public static void main(String[] args) {
+
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println("Map: " + map);
+
+        System.out.println("Get: " + map.get(2));
+
+        map.remove(1);
+
+        System.out.println("After remove: " + map);
+
+        System.out.println("Contains key 2: " + map.containsKey(2));
+        System.out.println("Keys: " + map.keySet());
+        System.out.println("Values: " + map.values());
+        System.out.println("Entries: " + map.entrySet());
+    }
+}
+// 12. TreeMap
+import java.util.*;
+
+class TreeMapDemo {
+    public static void main(String[] args) {
+
+        TreeMap<Integer, String> map = new TreeMap<>();
+
+        map.put(30, "C");
+        map.put(10, "A");
+        map.put(20, "B");
+        map.put(40, "D");
+
+        System.out.println("Map: " + map);
+
+        System.out.println("First Key: " + map.firstKey());
+        System.out.println("Last Key: " + map.lastKey());
+
+        System.out.println("Higher Key: " + map.higherKey(20));
+        System.out.println("Lower Key: " + map.lowerKey(20));
+
+        System.out.println("Ceiling Key: " + map.ceilingKey(25));
+        System.out.println("Floor Key: " + map.floorKey(25));
+
+        System.out.println("Entries: " + map.entrySet());
+    }
+}
+// 13. Hashtable
+import java.util.*;
+
+class HashtableDemo {
+    public static void main(String[] args) {
+
+        Hashtable<Integer, String> table = new Hashtable<>();
+
+        table.put(1, "Apple");
+        table.put(2, "Banana");
+        table.put(3, "Mango");
+
+        System.out.println("Hashtable: " + table);
+
+        System.out.println("Get key 2: " + table.get(2));
+
+        table.remove(1);
+
+        System.out.println("After remove: " + table);
+
+        System.out.println("Contains key 2: " +
+                table.containsKey(2));
+
+        System.out.println("Contains value Mango: " +
+                table.containsValue("Mango"));
+
+        System.out.println("Keys: " + table.keys());
+        System.out.println("Values: " + table.elements());
+
+        System.out.println("Size: " + table.size());
+        System.out.println("Is Empty: " + table.isEmpty());
+    }
+}
