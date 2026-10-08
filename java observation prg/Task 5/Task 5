@@ -1,1 +1,257 @@
+// 1. Collection Interface
+import java.util.*;
 
+public class CollectionDemo {
+    public static void main(String[] args) {
+
+        Collection<Integer> c = new ArrayList<>();
+
+        c.add(10);
+        c.add(20);
+        c.add(30);
+
+        System.out.println("Collection: " + c);
+
+        c.remove(20);
+        System.out.println("After remove: " + c);
+
+        System.out.println("Contains 10: " + c.contains(10));
+        System.out.println("Size: " + c.size());
+        System.out.println("Is Empty: " + c.isEmpty());
+
+        c.clear();
+        System.out.println("After clear: " + c);
+    }
+}
+// 2. List Interface
+import java.util.*;
+
+public class ListDemo {
+    public static void main(String[] args) {
+
+        List<Integer> list = new ArrayList<>();
+
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(20);
+
+        System.out.println("List: " + list);
+
+        list.add(1, 15);
+        System.out.println("After adding at index 1: " + list);
+
+        System.out.println("Element at index 2: " + list.get(2));
+
+        list.set(2, 25);
+        System.out.println("After set: " + list);
+
+        list.remove(1);
+        System.out.println("After remove: " + list);
+
+        System.out.println("Index of 20: " + list.indexOf(20));
+
+        System.out.println("Last index of 20: " + list.lastIndexOf(20));
+
+        System.out.println("SubList: " + list.subList(0, 2));
+
+        Collections.sort(list);
+        System.out.println("Sorted List: " + list);
+    }
+}
+// 3. Set Interface
+import java.util.*;
+
+public class SetDemo {
+    public static void main(String[] args) {
+
+        Set<Integer> set = new HashSet<>();
+
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(10);   // Duplicate
+
+        System.out.println("Set: " + set);
+
+        set.remove(20);
+        System.out.println("After remove: " + set);
+
+        System.out.println("Contains 10: " + set.contains(10));
+
+        System.out.println("Size: " + set.size());
+
+        System.out.println("Is Empty: " + set.isEmpty());
+
+        set.clear();
+        System.out.println("After clear: " + set);
+    }
+}
+// 4. SortedSet Interface
+import java.util.*;
+
+public class SortedSetDemo {
+    public static void main(String[] args) {
+
+        SortedSet<Integer> set = new TreeSet<>();
+
+        set.add(40);
+        set.add(10);
+        set.add(30);
+        set.add(20);
+        set.add(50);
+
+        System.out.println("Sorted Set: " + set);
+
+        System.out.println("First element: " + set.first());
+
+        System.out.println("Last element: " + set.last());
+
+        System.out.println("HeadSet: " + set.headSet(30));
+
+        System.out.println("TailSet: " + set.tailSet(30));
+
+        System.out.println("SubSet: " + set.subSet(20, 50));
+
+        System.out.println("Comparator: " + set.comparator());
+    }
+}
+5.NAVIGABLESET INTERFACE
+import java.util.*;
+
+public class NavigableSetDemo {
+    public static void main(String[] args) {
+
+        NavigableSet<Integer> set = new TreeSet<>();
+
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(40);
+        set.add(50);
+
+        System.out.println("Set: " + set);
+
+        System.out.println("Lower than 30: " + set.lower(30));
+        System.out.println("Floor of 30: " + set.floor(30));
+        System.out.println("Ceiling of 30: " + set.ceiling(30));
+        System.out.println("Higher than 30: " + set.higher(30));
+
+        System.out.println("Poll First: " + set.pollFirst());
+        System.out.println("Poll Last: " + set.pollLast());
+
+        System.out.println("Descending Set: " + set.descendingSet());
+    }
+}
+
+6. Queue Interface
+import java.util.*;
+
+public class QueueDemo {
+    public static void main(String[] args) {
+
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add(10);
+        q.add(20);
+        q.offer(30);
+
+        System.out.println("Queue: " + q);
+
+        System.out.println("Remove: " + q.remove());
+        System.out.println("Poll: " + q.poll());
+
+        System.out.println("Element: " + q.element());
+        System.out.println("Peek: " + q.peek());
+
+        System.out.println("Queue after operations: " + q);
+    }
+}
+
+7.Deque Interface
+
+import java.util.*;
+
+public class DequeDemo {
+    public static void main(String[] args) {
+
+        Deque<Integer> dq = new ArrayDeque<>();
+
+        dq.addFirst(10);
+        dq.addLast(20);
+        dq.offerFirst(5);
+        dq.offerLast(30);
+
+        System.out.println("Deque: " + dq);
+
+        System.out.println("Remove First: " + dq.removeFirst());
+        System.out.println("Remove Last: " + dq.removeLast());
+
+        System.out.println("Poll First: " + dq.pollFirst());
+        System.out.println("Poll Last: " + dq.pollLast());
+
+        System.out.println("Deque after operations: " + dq);
+    }
+}
+
+8.Map Interface
+
+import java.util.*;
+
+public class MapDemo {
+    public static void main(String[] args) {
+
+        Map<Integer, String> map = new HashMap<>();
+
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Mango");
+
+        System.out.println("Map: " + map);
+
+        System.out.println("Value of key 2: " + map.get(2));
+
+        System.out.println("Contains key 1: "
+                + map.containsKey(1));
+
+        System.out.println("Contains value Mango: "
+                + map.containsValue("Mango"));
+
+        System.out.println("Keys: " + map.keySet());
+        System.out.println("Values: " + map.values());
+        System.out.println("Entries: " + map.entrySet());
+
+        map.remove(2);
+
+        System.out.println("After remove: " + map);
+        System.out.println("Size: " + map.size());
+    }
+}
+
+9.SortedMap Interface
+
+import java.util.*;
+
+public class SortedMapDemo {
+    public static void main(String[] args) {
+
+        SortedMap<Integer, String> map = new TreeMap<>();
+
+        map.put(10, "Apple");
+        map.put(30, "Mango");
+        map.put(20, "Banana");
+        map.put(40, "Orange");
+
+        System.out.println("Sorted Map: " + map);
+
+        System.out.println("First Key: " + map.firstKey());
+
+        System.out.println("Last Key: " + map.lastKey());
+
+        System.out.println("Head Map: " + map.headMap(30));
+
+        System.out.println("Tail Map: " + map.tailMap(20));
+
+        System.out.println("Sub Map: " + map.subMap(20, 40));
+    }
+}
