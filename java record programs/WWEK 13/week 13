@@ -1,1 +1,37 @@
+import java.util.*;
 
+public class PhoneCombinations {
+
+    static String[] phone = {
+        "", "", "abc", "def", "ghi",
+        "jkl", "mno", "pqrs", "tuv", "wxyz"
+    };
+
+    static void generate(String digits, int index,
+                         String result,
+                         ArrayList<String> list) {
+
+        if (index == digits.length()) {
+            list.add(result);
+            return;
+        }
+
+        String letters =
+            phone[digits.charAt(index) - '0'];
+
+        for (char c : letters.toCharArray()) {
+            generate(digits, index + 1,
+                     result + c, list);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        String digits = "23";
+        ArrayList<String> list = new ArrayList<>();
+
+        generate(digits, 0, "", list);
+
+        System.out.println(list);
+    }
+}
