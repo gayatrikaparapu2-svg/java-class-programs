@@ -1,1 +1,42 @@
+import java.io.*;
 
+public class FileHandling {
+
+    static int countWord(String text, String word) {
+        int count = 0;
+        int index = 0;
+
+        while ((index = text.indexOf(word, index)) != -1) {
+            count++;
+            index += word.length();
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        try {
+            BufferedReader br =
+                new BufferedReader(new FileReader("sample.txt"));
+
+            String line;
+            String text = "";
+
+            while ((line = br.readLine()) != null) {
+                text += line + " ";
+            }
+
+            br.close();
+
+            System.out.println("pe - no of occurrences - "
+                    + countWord(text, "pe"));
+
+            System.out.println("pi - no of occurrences - "
+                    + countWord(text, "pi"));
+
+        } catch (IOException e) {
+            System.out.println("File error");
+        }
+    }
+}
